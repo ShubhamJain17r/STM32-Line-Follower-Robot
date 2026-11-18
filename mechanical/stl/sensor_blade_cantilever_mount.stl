@@ -1,0 +1,86 @@
+solid sensor_blade_cantilever_mount
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 35.0000 32.5000 0.0000
+      vertex 35.0000 -32.5000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 0.0000 32.5000 0.0000
+      vertex 35.0000 32.5000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 -32.5000 8.0000
+      vertex 35.0000 -32.5000 8.0000
+      vertex 35.0000 32.5000 8.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 -32.5000 8.0000
+      vertex 35.0000 32.5000 8.0000
+      vertex 0.0000 32.5000 8.0000
+    endloop
+  endfacet
+  facet normal 0.0000 -1.0000 0.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 35.0000 -32.5000 0.0000
+      vertex 35.0000 -32.5000 8.0000
+    endloop
+  endfacet
+  facet normal 0.0000 -1.0000 0.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 35.0000 -32.5000 8.0000
+      vertex 0.0000 -32.5000 8.0000
+    endloop
+  endfacet
+  facet normal 0.0000 1.0000 0.0000
+    outer loop
+      vertex 0.0000 32.5000 0.0000
+      vertex 35.0000 32.5000 8.0000
+      vertex 35.0000 32.5000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 1.0000 0.0000
+    outer loop
+      vertex 0.0000 32.5000 0.0000
+      vertex 0.0000 32.5000 8.0000
+      vertex 35.0000 32.5000 8.0000
+    endloop
+  endfacet
+  facet normal -1.0000 0.0000 0.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 0.0000 -32.5000 8.0000
+      vertex 0.0000 32.5000 8.0000
+    endloop
+  endfacet
+  facet normal -1.0000 0.0000 0.0000
+    outer loop
+      vertex 0.0000 -32.5000 0.0000
+      vertex 0.0000 32.5000 8.0000
+      vertex 0.0000 32.5000 0.0000
+    endloop
+  endfacet
+  facet normal 1.0000 0.0000 0.0000
+    outer loop
+      vertex 35.0000 -32.5000 0.0000
+      vertex 35.0000 32.5000 0.0000
+      vertex 35.0000 32.5000 8.0000
+    endloop
+  endfacet
+  facet normal 1.0000 0.0000 0.0000
+    outer loop
+      vertex 35.0000 -32.5000 0.0000
+      vertex 35.0000 32.5000 8.0000
+      vertex 35.0000 -32.5000 8.0000
+    endloop
+  endfacet
+endsolid sensor_blade_cantilever_mount

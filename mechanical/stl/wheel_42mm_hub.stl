@@ -1,0 +1,128 @@
+solid wheel_42mm_hub
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex 14.8492 -14.8492 0.0000
+      vertex 21.0000 0.0000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex 0.0000 -21.0000 0.0000
+      vertex 14.8492 -14.8492 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex -14.8492 -14.8492 0.0000
+      vertex 0.0000 -21.0000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex -21.0000 0.0000 0.0000
+      vertex -14.8492 -14.8492 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex -14.8492 14.8492 0.0000
+      vertex -21.0000 0.0000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex 0.0000 21.0000 0.0000
+      vertex -14.8492 14.8492 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex 14.8492 14.8492 0.0000
+      vertex 0.0000 21.0000 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 -1.0000
+    outer loop
+      vertex 0.0000 0.0000 0.0000
+      vertex 21.0000 0.0000 0.0000
+      vertex 14.8492 14.8492 0.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex 21.0000 0.0000 19.0000
+      vertex 14.8492 -14.8492 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex 14.8492 -14.8492 19.0000
+      vertex 0.0000 -21.0000 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex 0.0000 -21.0000 19.0000
+      vertex -14.8492 -14.8492 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex -14.8492 -14.8492 19.0000
+      vertex -21.0000 0.0000 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex -21.0000 0.0000 19.0000
+      vertex -14.8492 14.8492 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex -14.8492 14.8492 19.0000
+      vertex 0.0000 21.0000 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex 0.0000 21.0000 19.0000
+      vertex 14.8492 14.8492 19.0000
+    endloop
+  endfacet
+  facet normal 0.0000 0.0000 1.0000
+    outer loop
+      vertex 0.0000 0.0000 19.0000
+      vertex 14.8492 14.8492 19.0000
+      vertex 21.0000 0.0000 19.0000
+    endloop
+  endfacet
+  facet normal 0.9239 -0.3827 0.0000
+    outer loop
+      vertex 21.0000 0.0000 0.0000
+      vertex 14.8492 -14.8492 0.0000
+      vertex 14.8492 -14.8492 19.0000
+    endloop
+  endfacet
+  facet normal 0.9239 -0.3827 0.0000
+    outer loop
+      vertex 21.0000 0.0000 0.0000
+      vertex 14.8492 -14.8492 19.0000
+      vertex 21.0000 0.0000 19.0000
+    endloop
+  endfacet
+endsolid wheel_42mm_hub
