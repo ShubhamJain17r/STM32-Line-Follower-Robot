@@ -1,0 +1,16 @@
+# Build directories and generated binaries
+build/
+build_*/
+*.elf
+*.bin
+*.hex
+*.map
+*.o
+*.d
+*.lst
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*~
