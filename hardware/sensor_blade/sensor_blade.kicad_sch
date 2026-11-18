@@ -1,0 +1,47 @@
+(kicad_sch (version 20231120) (generator "eeschema")
+
+  (uuid "65000002-0000-0000-0000-000000000001")
+
+  (paper "A3")
+
+  (title_block
+    (title "Front Optical QTR Sensor Blade (8-Channel Array)")
+    (date "2026-11-18")
+    (rev "v2.0")
+    (company "Autonomous Robotics Systems")
+    (comment 1 "8x Vishay QRE1113GR SMD Optical Reflectance Sensors @ 7.5mm Pitch")
+    (comment 2 "Active Ambient Light Rejection (AutoDifferential) via 2N7002 N-MOSFET")
+    (comment 3 "High-Speed Pullup Network (10k 1% -> tr, tf < 15us)")
+    (comment 4 "11-Pin Inter-Board Ribbon Connection to Motherboard J3")
+  )
+
+  (wire (pts (xy 30.0 40.0) (xy 40.0 40.0)) (stroke (width 0) (type default)) (uuid "ws-01"))
+  (label "+3.3V" (at 35.0 40.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ls-pwr1"))
+
+  (wire (pts (xy 30.0 45.0) (xy 40.0 45.0)) (stroke (width 0) (type default)) (uuid "ws-02"))
+  (label "GND" (at 35.0 45.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ls-pwr2"))
+
+  (label "S1_ADC" (at 50.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-01"))
+  (label "S2_ADC" (at 75.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-02"))
+  (label "S3_ADC" (at 100.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-03"))
+  (label "S4_ADC" (at 125.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-04"))
+  (label "S5_ADC" (at 150.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-05"))
+  (label "S6_ADC" (at 175.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-06"))
+  (label "S7_ADC" (at 200.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-07"))
+  (label "S8_ADC" (at 225.0 70.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-08"))
+
+  (label "EMITTER_K" (at 137.5 110.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-k"))
+  (label "EMITTER_GATE" (at 137.5 130.0 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "lsb-gate"))
+
+  (text "SECTION 1: 8x VISHAY QRE1113GR REFLECTIVE SENSOR ARRAY\n- 8 Optical Channels spaced at uniform 7.5 mm pitch (52.5 mm total optical span)\n- S1 (Far Left, X = -26.25mm) to S8 (Far Right, X = +26.25mm)\n- Ground Clearance: 3.0 mm +/- 0.5 mm\n- Phototransistor Collector Pullups: 10 kOhm 1% (R_PU1..R_PU8)\n  Dark Surface: Sensor OFF -> Output pulled to 3.3V (~4095 counts)\n  White Line: Sensor ON -> Output pulled to GND (~250-500 counts)\n  Response time: tr, tf < 15 microseconds"
+    (at 25.4 30.0 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "ts-sec1")
+  )
+
+  (text "SECTION 2: AUTODIFFERENTIAL ACTIVE AMBIENT REJECTION CIRCUIT\n- IR LED Emitters powered from 3.3V rail through individual 100 Ohm ballast resistors (R_EM1..R_EM8)\n- Emitter Forward Current IF = (3.3V - 1.2V) / 100 Ohm = 21 mA per diode (Total IF = ~168 mA)\n- Cathodes tied to common switched net EMITTER_K\n- Switching Element: 2N7002 N-Channel MOSFET (Q_GATE, SOT-23, 60V, 300mA, C8501)\n  Gate driven from EMITTER_GATE (PB14 on Motherboard) via 1 kOhm series (R_G) + 100 kOhm pulldown (R_PD)\n- AutoDifferential algorithm toggles emitters ON and OFF to perform active sunlight/AC light subtraction"
+    (at 25.4 100.0 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "ts-sec2")
+  )
+
+  (text "SECTION 3: INTERCONNECT & MECHANICAL MOUNTING\n- J7: 11-Pin 2.0 mm Pitch Right-Angle Header (matches Motherboard J3)\n  Pin 1: +3.3V, Pin 2: GND, Pins 3-10: S1_ADC to S8_ADC, Pin 11: EMITTER_GATE\n- Local Decoupling: C_IN1 (10 uF 10V 0805) + C_IN2 (100 nF 16V 0603)\n- Slotted Mounting Holes: 2x M2.5 / M3 vertical adjustment slots spaced 58 mm apart"
+    (at 25.4 150.0 0) (effects (font (size 1.5 1.5)) (justify left top)) (uuid "ts-sec3")
+  )
+)

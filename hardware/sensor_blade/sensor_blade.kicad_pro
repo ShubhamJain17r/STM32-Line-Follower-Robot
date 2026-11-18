@@ -1,0 +1,153 @@
+{
+  "board": {
+    "3dviewports": [],
+    "design_settings": {
+      "boundary_edge_to_pcb": 0.4,
+      "copper_line_width": 0.2,
+      "copper_ring_width": 0.2,
+      "copper_text_italic": false,
+      "copper_text_size_h": 1.5,
+      "copper_text_size_v": 1.5,
+      "copper_text_thickness": 0.3,
+      "copper_text_upright": false,
+      "courtyard_line_width": 0.05,
+      "courtyard_pad_to_edge_clearance": 0.25,
+      "default_diff_pair_gap": 0.25,
+      "default_diff_pair_via_gap": 0.25,
+      "default_diff_pair_width": 0.2,
+      "diff_pair_dimensions": [],
+      "drc_exclusions": [],
+      "fab_line_width": 0.1,
+      "fab_text_italic": false,
+      "fab_text_size_h": 1.0,
+      "fab_text_size_v": 1.0,
+      "fab_text_thickness": 0.15,
+      "fab_text_upright": false,
+      "line_width": 0.2,
+      "mask_clearance": 0.05,
+      "mask_min_width": 0.1,
+      "mask_to_copper_clearance": 0.05,
+      "other_line_width": 0.15,
+      "other_text_italic": false,
+      "other_text_size_h": 1.0,
+      "other_text_size_v": 1.0,
+      "other_text_thickness": 0.15,
+      "other_text_upright": false,
+      "pad_to_mask_clearance": 0.05,
+      "pad_to_paste_clearance": -0.05,
+      "pad_to_paste_clearance_ratio": 0.0,
+      "paste_clearance": 0.0,
+      "paste_clearance_ratio": 0.0,
+      "pcb_text_size_h": 1.5,
+      "pcb_text_size_v": 1.5,
+      "pcb_text_thickness": 0.3,
+      "pcb_text_upright": false,
+      "rule_severities": {},
+      "rules": {
+        "max_error": 0.005,
+        "min_clearance": 0.15,
+        "min_copper_edge_clearance": 0.3,
+        "min_hole_clearance": 0.25,
+        "min_hole_to_hole": 0.25,
+        "min_microvia_diameter": 0.2,
+        "min_microvia_drill": 0.1,
+        "min_resolved_spoke_count": 2,
+        "min_silk_clearance": 0.15,
+        "min_through_hole_diameter": 0.6,
+        "min_track_width": 0.2,
+        "min_via_annular_ring": 0.15,
+        "min_via_diameter": 0.5,
+        "solder_mask_to_copper_clearance": 0.05,
+        "use_connected_track_width": false
+      },
+      "silk_line_width": 0.15,
+      "silk_pad_to_silk_clearance": 0.15,
+      "silk_text_italic": false,
+      "silk_text_size_h": 1.0,
+      "silk_text_size_v": 1.0,
+      "silk_text_thickness": 0.15,
+      "silk_text_upright": false,
+      "tracks": [0.2, 0.25, 0.4, 0.6],
+      "via_dimensions": [
+        {"diameter": 0.6, "drill": 0.3}
+      ]
+    },
+    "ipc2581": {
+      "dist": "",
+      "distpn": "",
+      "internal_id": "",
+      "mfg": "",
+      "mpn": ""
+    },
+    "layer_presets": [],
+    "viewports": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "erc": {
+    "erc_exclusions": [],
+    "meta": {
+      "version": 0
+    },
+    "rule_severities": {}
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "sensor_blade.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "clearance": 0.15,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Default",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "wire_width": 0.0
+      }
+    ],
+    "meta": {
+      "version": 3
+    },
+    "net_colors": null
+  },
+  "pcbnew": {
+    "last_arm_footprint_lib": ""
+  },
+  "schematic": {
+    "annotate_start_num": 1,
+    "drawing": {
+      "default_line_thickness": 0.15,
+      "default_text_size": 1.27
+    },
+    "meta": {
+      "version": 1
+    },
+    "page": "A4"
+  },
+  "sheets": [
+    [
+      "00000000-0000-0000-0000-000065000002",
+      ""
+    ]
+  ],
+  "text_variables": {
+    "COMPANY": "Autonomous Competition Mechatronics",
+    "PROJECT": "STM32-Line-Follower-Robot (Front Sensor Blade)",
+    "REVISION": "v2.0-Production"
+  }
+}

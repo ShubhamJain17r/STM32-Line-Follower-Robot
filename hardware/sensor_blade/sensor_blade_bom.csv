@@ -1,0 +1,10 @@
+Item,Designator,Quantity,Value,Footprint,LCSC Part Number,Manufacturer,Description
+1,"S1..S8",8,"QRE1113GR","OptoDevice:Vishay_QRE1113GR","C138766","Vishay","Subminiature Reflective Optical Sensor SMD Phototransistor"
+2,"Q_GATE",1,"2N7002","SOT-23","C8501","JCET / ON Semi","N-Channel MOSFET 60V 300mA 2.5Ohm (Ambient Emitter Gate)"
+3,"J7",1,"11-Pin 2.0mm Horizontal","JST_PH_S11B-PH-K","C295751","JST / Ckmtw","JST-PH 11-Pin 2.0mm Right-Angle Header (Interconnect)"
+4,"R_EM1..R_EM8",8,"100R 1%","R_0603_1608Metric","C22775","Uniroyal","Thick Film Chip Resistor 100 Ohm 1% 1/10W 0603 (Ballast)"
+5,"R_PU1..R_PU8",8,"10k 1%","R_0603_1608Metric","C25804","Uniroyal","Thick Film Chip Resistor 10k Ohm 1% 1/10W 0603 (Pull-up)"
+6,"R_G",1,"1k 1%","R_0603_1608Metric","C21190","Uniroyal","Thick Film Chip Resistor 1k Ohm 1% 1/10W 0603 (Gate Resistor)"
+7,"R_PD",1,"100k 1%","R_0603_1608Metric","C25804","Uniroyal","Thick Film Chip Resistor 100k Ohm 1% 1/10W 0603 (Gate Pull-down)"
+8,"C_IN1",1,"10uF 10V X7R","C_0805_2012Metric","C19666","Samsung","Multilayer Ceramic Capacitor 10uF 10V X7R 0805"
+9,"C_IN2",1,"100nF 16V X7R","C_0603_1608Metric","C14663","Samsung","Multilayer Ceramic Capacitor 100nF 16V X7R 0603"
