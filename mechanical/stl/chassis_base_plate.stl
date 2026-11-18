@@ -1,86 +1,86 @@
 solid chassis_base_plate
   facet normal 0.0000 0.0000 -1.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex 120.0000 47.0000 0.0000
-      vertex 120.0000 -47.0000 0.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex 126.0000 47.0000 0.0000
+      vertex 126.0000 -47.0000 0.0000
     endloop
   endfacet
   facet normal 0.0000 0.0000 -1.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex -15.0000 47.0000 0.0000
-      vertex 120.0000 47.0000 0.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex -12.0000 47.0000 0.0000
+      vertex 126.0000 47.0000 0.0000
     endloop
   endfacet
   facet normal 0.0000 0.0000 1.0000
     outer loop
-      vertex -15.0000 -47.0000 3.0000
-      vertex 120.0000 -47.0000 3.0000
-      vertex 120.0000 47.0000 3.0000
+      vertex -12.0000 -47.0000 3.2000
+      vertex 126.0000 -47.0000 3.2000
+      vertex 126.0000 47.0000 3.2000
     endloop
   endfacet
   facet normal 0.0000 0.0000 1.0000
     outer loop
-      vertex -15.0000 -47.0000 3.0000
-      vertex 120.0000 47.0000 3.0000
-      vertex -15.0000 47.0000 3.0000
+      vertex -12.0000 -47.0000 3.2000
+      vertex 126.0000 47.0000 3.2000
+      vertex -12.0000 47.0000 3.2000
     endloop
   endfacet
   facet normal 0.0000 -1.0000 0.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex 120.0000 -47.0000 0.0000
-      vertex 120.0000 -47.0000 3.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex 126.0000 -47.0000 0.0000
+      vertex 126.0000 -47.0000 3.2000
     endloop
   endfacet
   facet normal 0.0000 -1.0000 0.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex 120.0000 -47.0000 3.0000
-      vertex -15.0000 -47.0000 3.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex 126.0000 -47.0000 3.2000
+      vertex -12.0000 -47.0000 3.2000
     endloop
   endfacet
   facet normal 0.0000 1.0000 0.0000
     outer loop
-      vertex -15.0000 47.0000 0.0000
-      vertex 120.0000 47.0000 3.0000
-      vertex 120.0000 47.0000 0.0000
+      vertex -12.0000 47.0000 0.0000
+      vertex 126.0000 47.0000 3.2000
+      vertex 126.0000 47.0000 0.0000
     endloop
   endfacet
   facet normal 0.0000 1.0000 0.0000
     outer loop
-      vertex -15.0000 47.0000 0.0000
-      vertex -15.0000 47.0000 3.0000
-      vertex 120.0000 47.0000 3.0000
+      vertex -12.0000 47.0000 0.0000
+      vertex -12.0000 47.0000 3.2000
+      vertex 126.0000 47.0000 3.2000
     endloop
   endfacet
   facet normal -1.0000 0.0000 0.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex -15.0000 -47.0000 3.0000
-      vertex -15.0000 47.0000 3.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex -12.0000 -47.0000 3.2000
+      vertex -12.0000 47.0000 3.2000
     endloop
   endfacet
   facet normal -1.0000 0.0000 0.0000
     outer loop
-      vertex -15.0000 -47.0000 0.0000
-      vertex -15.0000 47.0000 3.0000
-      vertex -15.0000 47.0000 0.0000
+      vertex -12.0000 -47.0000 0.0000
+      vertex -12.0000 47.0000 3.2000
+      vertex -12.0000 47.0000 0.0000
     endloop
   endfacet
   facet normal 1.0000 0.0000 0.0000
     outer loop
-      vertex 120.0000 -47.0000 0.0000
-      vertex 120.0000 47.0000 0.0000
-      vertex 120.0000 47.0000 3.0000
+      vertex 126.0000 -47.0000 0.0000
+      vertex 126.0000 47.0000 0.0000
+      vertex 126.0000 47.0000 3.2000
     endloop
   endfacet
   facet normal 1.0000 0.0000 0.0000
     outer loop
-      vertex 120.0000 -47.0000 0.0000
-      vertex 120.0000 47.0000 3.0000
-      vertex 120.0000 -47.0000 3.0000
+      vertex 126.0000 -47.0000 0.0000
+      vertex 126.0000 47.0000 3.2000
+      vertex 126.0000 -47.0000 3.2000
     endloop
   endfacet
 endsolid chassis_base_plate
