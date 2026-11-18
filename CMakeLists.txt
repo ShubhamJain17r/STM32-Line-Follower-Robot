@@ -25,7 +25,12 @@ set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ${MCU_FLAGS}")
 set(STM32_LIBRARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/STM32-Library")
 set(STM32_COMPONENTS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/STM32-Components")
 
-# Projects
+# Consumer Applications (Layer 3)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/apps/line_follower/CMakeLists.txt")
+    add_subdirectory(apps/line_follower)
+endif()
+
+# Legacy / Standalone Projects
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/projects/line_follower_robot/CMakeLists.txt")
     add_subdirectory(projects/line_follower_robot)
 endif()
