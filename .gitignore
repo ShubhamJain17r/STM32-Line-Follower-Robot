@@ -14,3 +14,16 @@ build_*/
 .idea/
 *.swp
 *~
+
+# KiCad temporary & backup files
+*.bak
+*-backups/
+*.kicad_prl
+_autosave-*
+*.lck
+fp-info-cache
+
+# Mechanical CAD temporary files
+*.tmp
+*.log
+~$*
