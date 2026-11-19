@@ -13,7 +13,6 @@
 
 #include "stm32/uart/uart.hpp"
 #include "components/wireless/hc05/hc05.hpp"
-#include "components/common/pid_controller.hpp"
 #include "robot_config.hpp"
 
 namespace robot

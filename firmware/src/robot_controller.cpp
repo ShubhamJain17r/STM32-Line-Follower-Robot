@@ -4,7 +4,7 @@
  */
 
 #include "robot_controller.hpp"
-#include "components/common/math_utils.hpp"
+#include "algorithms/math/math_utils.hpp"
 
 namespace robot
 {
@@ -15,15 +15,18 @@ RobotController::RobotController()
       battery_(),
       telemetry_(),
       buzzer_(config::PIN_BUZZER),
-      steeringPid_(components::control::PidConfig{
-          config::DEFAULT_PID_KP,
-          config::DEFAULT_PID_KI,
-          config::DEFAULT_PID_KD,
-          0.0f, // kf
-          -1.0f, 1.0f, // outMin, outMax
-          -0.4f, 0.4f, // intMin, intMax
-          config::DEFAULT_PID_FILTER_ALPHA
-      }),
+      steeringPid_(
+          algorithms::control::PidGains<float>{
+              config::DEFAULT_PID_KP,
+              config::DEFAULT_PID_KI,
+              config::DEFAULT_PID_KD,
+              0.0f // kf
+          },
+          algorithms::control::PidLimits<float>{
+              -1.0f, 1.0f, // min_output, max_output
+              -0.4f, 0.4f  // min_integrator, max_integrator
+          }
+      ),
       state_(RobotState::Init),
       baseSpeed_(config::DEFAULT_BASE_SPEED),
       stateEnterTimeMs_(0),
@@ -66,6 +69,9 @@ bool RobotController::init() noexcept
 
     // 6. Audio notification: 2 short beeps indicating successful hardware boot
     buzzer_.playPattern(80, 80, 2);
+
+    // 7. Configure PID derivative low-pass filter
+    steeringPid_.set_derivative_filter_alpha(config::DEFAULT_PID_FILTER_ALPHA);
 
     // Enter calibration phase immediately on startup
     startCalibration();
@@ -127,12 +133,12 @@ void RobotController::stepControl(std::uint32_t nowMs, float dtSec) noexcept
             {
                 lastError_ = error;
 
-                // Compute steering correction via discrete PID controller
-                const float steering = steeringPid_.updateError(static_cast<float>(error), dtSec);
+                // Compute steering correction via discrete PID controller from Tier 3 Embedded-Algorithms
+                const float steering = steeringPid_.update(static_cast<float>(error), 0.0f, dtSec);
                 lastSteeringOutput_ = steering;
 
                 // Dynamic speed scheduling: decelerate on sharp curves
-                const float speedReduction = config::SPEED_CURVATURE_FACTOR * components::math::abs(steering);
+                const float speedReduction = config::SPEED_CURVATURE_FACTOR * std::abs(steering);
                 float targetSpeed = baseSpeed_ - speedReduction;
                 if (targetSpeed < config::MIN_CURVE_SPEED)
                 {
@@ -264,19 +270,19 @@ void RobotController::handleCommand(const Command& cmd, [[maybe_unused]] std::ui
             break;
 
         case CommandType::SetKp:
-            steeringPid_.setGains(cmd.value, steeringPid_.getKi(), steeringPid_.getKd(), steeringPid_.getKf());
+            steeringPid_.set_gains(cmd.value, steeringPid_.gains().ki, steeringPid_.gains().kd, steeringPid_.gains().kf);
             break;
 
         case CommandType::SetKi:
-            steeringPid_.setGains(steeringPid_.getKp(), cmd.value, steeringPid_.getKd(), steeringPid_.getKf());
+            steeringPid_.set_gains(steeringPid_.gains().kp, cmd.value, steeringPid_.gains().kd, steeringPid_.gains().kf);
             break;
 
         case CommandType::SetKd:
-            steeringPid_.setGains(steeringPid_.getKp(), steeringPid_.getKi(), cmd.value, steeringPid_.getKf());
+            steeringPid_.set_gains(steeringPid_.gains().kp, steeringPid_.gains().ki, cmd.value, steeringPid_.gains().kf);
             break;
 
         case CommandType::SetSpeed:
-            baseSpeed_ = components::math::clamp(cmd.value, 0.1f, 1.0f);
+            baseSpeed_ = algorithms::math::clamp(cmd.value, 0.1f, 1.0f);
             break;
 
         case CommandType::None:

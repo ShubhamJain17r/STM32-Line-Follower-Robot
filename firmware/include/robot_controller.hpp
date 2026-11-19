@@ -22,7 +22,7 @@
 #include "telemetry_manager.hpp"
 
 #include "components/actuators/buzzer/buzzer.hpp"
-#include "components/common/pid_controller.hpp"
+#include "algorithms/control/pid_controller.hpp"
 
 namespace robot
 {
@@ -76,7 +76,7 @@ private:
     BatteryMonitor                                battery_;
     TelemetryManager                              telemetry_;
     components::actuators::buzzer::ActiveBuzzer   buzzer_;
-    components::control::PidController            steeringPid_;
+    algorithms::control::PidController<float>     steeringPid_;
 
     RobotState    state_;
     float         baseSpeed_;

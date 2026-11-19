@@ -13,7 +13,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Hardware Defines
-add_compile_definitions(STM32F446xx COMPONENTS_DISABLE_DEPRECATION_WARNINGS)
+add_compile_definitions(STM32F446xx )
 
 # Architecture & Optimization Flags
 set(MCU_FLAGS "-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard")
