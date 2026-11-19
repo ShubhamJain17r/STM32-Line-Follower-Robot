@@ -44,17 +44,19 @@ STM32-Line-Follower-Robot/
 │       ├── telemetry_manager.cpp
 │       └── robot_controller.cpp
 │
-├── hardware/                        # KiCad 8 / 7 Hardware Designs
-│   ├── motherboard/                 # Board 1: STM32F446 + TB6612 + Buck/LDO + HC-05
-│   │   └── README.md                # Schematics & routing specifications
-│   ├── sensor_blade/                # Board 2: 8x QRE1113GR + 2N7002 MOSFET Blade
-│   │   └── README.md                # Optical pitch, clearance, and ribbon pinout
-│   └── gerbers/                     # Production Gerbers for JLCPCB / PCBWay
+├── hardware/                        # Complete Electronics Design & Fabrication Package
+│   ├── SCHEMATIC_GUIDE.md           # Circuit schematics, power tree & calculations
+│   ├── PCB_ROUTING_GUIDE.md         # 4-layer stackup, trace widths & DFM rules
+│   ├── jlcpcb_bom.csv               # Consolidated system LCSC manufacturing BOM
+│   ├── motherboard/                 # Board 1: Power, Compute, Actuation & Telemetry
+│   │   ├── README.md                # Motherboard technical specifications
+│   │   └── motherboard_bom.csv      # Motherboard components & LCSC part numbers
+│   └── sensor_blade/                # Board 2: Front Optical Sensor Array (8x QRE1113GR)
+│       ├── README.md                # Optical pitch, ambient rejection & pinout
+│       └── sensor_blade_bom.csv     # Sensor blade components & LCSC part numbers
 │
-├── mechanical/                      # 3D Chassis CAD & 3D Print Files
-│   ├── README.md                    # Dimensions, wheel clearance, 3D printing specs
-│   ├── cad/                         # STEP / CAD assembly models
-│   └── stl/                         # Ball caster bracket, N20 motor mounts
+├── mechanical/                      # Mechanical Architecture & Chassis Specifications
+│   └── README.md                    # Kinematics, unibody geometry, 3D print specs & BOM
 │
 ├── lib/                             # Modular Submodules (4-Tier Robotics Architecture)
 │   ├── STM32-Library/               # [Tier 1] Bare-Metal Peripheral Engine (stm32::hal)

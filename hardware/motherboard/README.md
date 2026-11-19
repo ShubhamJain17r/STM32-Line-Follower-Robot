@@ -1,6 +1,11 @@
-# Board 1: Main Motherboard Specification (KiCad 8)
+# Board 1: Main Motherboard Technical Specification
 
 The Main Motherboard serves as the power, compute, wireless telemetry, and motor actuation hub for the high-speed line follower robot.
+
+> **Engineering Guides:**
+> - Detailed circuit design & calculations: [Schematic Design Guide](../SCHEMATIC_GUIDE.md)
+> - 4-layer stackup & layout rules: [PCB Routing Guide](../PCB_ROUTING_GUIDE.md)
+> - Manufacturing BOM: [`motherboard_bom.csv`](motherboard_bom.csv) / [System BOM](../jlcpcb_bom.csv)
 
 ---
 

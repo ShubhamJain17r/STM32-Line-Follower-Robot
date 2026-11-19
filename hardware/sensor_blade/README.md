@@ -1,6 +1,11 @@
-# Board 2: Front Optical Sensor Blade Specification (KiCad 8)
+# Board 2: Front Optical Sensor Blade Technical Specification
 
 The Front Sensor Blade is a decoupled, sacrificial optical sensing array positioned at the front of the robot ahead of the ball caster.
+
+> **Engineering Guides:**
+> - Detailed optical circuit & ambient rejection: [Schematic Design Guide](../SCHEMATIC_GUIDE.md)
+> - Optical array alignment & matte black DFM: [PCB Routing Guide](../PCB_ROUTING_GUIDE.md)
+> - Manufacturing BOM: [`sensor_blade_bom.csv`](sensor_blade_bom.csv) / [System BOM](../jlcpcb_bom.csv)
 
 ---
 

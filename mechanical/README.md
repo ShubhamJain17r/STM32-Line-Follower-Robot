@@ -61,16 +61,23 @@ The chassis is engineered specifically for autonomous line tracking at high corn
 
 ---
 
-## 3. Production 3D Print STL Files (`mechanical/stl/`)
+## 3. Chassis Structural Parts & Geometry Specifications
 
-All files are verified manifold meshes ready for slicing:
+1. **Unibody Chassis Base Plate**:
+   - Rigid $3.2\text{ mm}$ plate with drop-in battery through-pocket ($58.0\text{ mm} \times 32.0\text{ mm}$) centered over the rear drive axle.
+   - Dual N20 motor clamping channels with M2 heat-set insert bosses ($OD = 3.2\text{ mm}$, depth $= 4.0\text{ mm}$).
+   - Motherboard standoff mounting pattern: 4× M3 holes on $72.0\text{ mm} \times 42.0\text{ mm}$ grid.
+   - Front COTS ball caster mount: 2× M3 holes @ $24.0\text{ mm}$ pitch with $16.0\text{ mm}$ center clearance cutout.
+   - Dual $13.0\text{ mm} \times 2.5\text{ mm}$ lateral slots for hook-and-loop battery retention velcro strap.
 
-1. **[`chassis_base_plate.stl`](stl/chassis_base_plate.stl)**:
-   - Rigid $3.2\text{ mm}$ unibody plate with top drop-in battery through-pocket, motor recesses, M3 PCB standoff pattern, COTS caster holes, and strap slots.
-2. **[`n20_motor_clamp_left.stl`](stl/n20_motor_clamp_left.stl)** & **[`n20_motor_clamp_right.stl`](stl/n20_motor_clamp_right.stl)**:
-   - High-rigidity M2 saddle clamps with integrated $360^\circ$ rear magnetic encoder protective cowls.
-3. **[`sensor_blade_mount.stl`](stl/sensor_blade_mount.stl)**:
-   - Cantilevered nose extension with vertical adjustment slots for Board 2.
+2. **N20 Motor Clamping Saddles (Left & Right Pairs)**:
+   - Precision $12.0\text{ mm} \times 10.0\text{ mm}$ cross-section contoured to clamp N20 micro gearmotors rigidly against vibration.
+   - Integrated $360^\circ$ rear magnetic encoder cowl ($12.5\text{ mm}$ diameter $\times 6.0\text{ mm}$ depth) protecting delicate hall sensors from track debris and mechanical impact.
+   - Fastened via 4× M2 × 12mm socket head cap screws per motor.
+
+3. **Front Cantilever Sensor Blade Mount**:
+   - Extended nose cantilever positioning optical sensors $40.0\text{ mm}$ ahead of front ball caster ($140.0\text{ mm}$ total sensor advance from rear drive axle).
+   - Dual vertical slots for M2.5 screws spaced $58.0\text{ mm}$ center-to-center, providing continuous height calibration between $2.0\text{ mm}$ and $4.0\text{ mm}$ ground clearance.
 
 ---
 
