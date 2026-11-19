@@ -56,10 +56,10 @@ STM32-Line-Follower-Robot/
 │   ├── cad/                         # STEP / CAD assembly models
 │   └── stl/                         # Ball caster bracket, N20 motor mounts
 │
-├── lib/                             # Modular Submodules
-│   ├── STM32-Components/            # [Layer 2] Device Drivers (TB6612, QTR, Encoder, Buzzer)
-│   ├── STM32-Library/               # [Layer 1] Bare-Metal Peripheral Engine
-│   └── Embedded-Algorithms/         # [Layer 3] Pure C++17 Math, PID, Pathfinding (Optional / Planned)
+├── lib/                             # Modular Submodules (4-Tier Robotics Architecture)
+│   ├── STM32-Library/               # [Tier 1] Bare-Metal Peripheral Engine (stm32::hal)
+│   ├── STM32-Components/            # [Tier 2] Device Drivers (TB6612, QTR, Encoder, Buzzer)
+│   └── Embedded-Algorithms/         # [Tier 3] Pure C++17 Math, PID, Kinematics, Filters (Host-Testable)
 │
 ├── CMakeLists.txt                   # Root CMake orchestrator
 ├── Makefile                         # Unified root Makefile
@@ -90,17 +90,26 @@ STM32-Line-Follower-Robot/
 
 ---
 
-## 4. Build Instructions
+## 4. Build & Verification Instructions
 
 ### Prerequisites
 - GNU ARM Embedded Toolchain (`arm-none-eabi-gcc` / `g++` 7.2.1+)
 - GNU Make 4.0+ or CMake 3.16+
-- OpenOCD or `st-flash`
+- OpenOCD or `st-flash` for flashing to NUCLEO-F446RE
 
-### Compiling & Flashing
+### Submodule Synchronization
+```bash
+# Clone with all 3 tiers initialized
+git submodule update --init --recursive
+```
+
+### Compiling & Flashing (GNU Make)
 ```bash
 # Build firmware binary
 make
+
+# Validate linked submodules
+make test-submodules
 
 # Check binary footprint
 make size
@@ -113,6 +122,12 @@ make flash-stlink
 
 # Clean build artifacts
 make clean
+```
+
+### Compiling (CMake)
+```bash
+cmake -B build -DCMAKE_TOOLCHAIN_FILE=lib/STM32-Library/cmake/arm-none-eabi-gcc.cmake -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j$(nproc)
 ```
 
 ### Memory Footprint

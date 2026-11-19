@@ -45,7 +45,7 @@ BIN     = $(CP) -O binary -S
 MCU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 
 # Hardware Defines
-DEFS = -DSTM32F446xx
+DEFS = -DSTM32F446xx -DCOMPONENTS_DISABLE_DEPRECATION_WARNINGS
 
 # Include Paths (Application + Components + Algorithms + HAL + CMSIS)
 INCLUDES = \
