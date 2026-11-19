@@ -1,15 +1,27 @@
 # ==============================================================================
-# Makefile for Line Follower Robot (Layer 3 Application)
-# Target: STM32F446RE (ARM Cortex-M4F @ 180 MHz)
+# Makefile for Autonomous Closed-Loop Line Follower Robot Firmware
+# Target MCU: STM32F446RE (ARM Cortex-M4F @ 180 MHz)
 # ==============================================================================
 
-TARGET    = line_follower_robot
+TARGET    = line_follower
 BUILD_DIR = build
 
-# Base paths to submodules
-ROOT_DIR  = ../..
-LIB_DIR   = $(ROOT_DIR)/lib/STM32-Library
+# Base paths to submodules and root
+ROOT_DIR  = ..
 COMP_DIR  = $(ROOT_DIR)/lib/STM32-Components
+
+# Resolve Layer 1 directory (root submodule preferred, fallback to nested components submodule)
+ifneq ($(wildcard $(ROOT_DIR)/lib/STM32-Library/Inc),)
+    LIB_DIR = $(ROOT_DIR)/lib/STM32-Library
+else ifneq ($(wildcard $(COMP_DIR)/lib/STM32-Library/Inc),)
+    LIB_DIR = $(COMP_DIR)/lib/STM32-Library
+else
+    $(error "STM32-Library not found in $(ROOT_DIR)/lib/STM32-Library or $(COMP_DIR)/lib/STM32-Library. Run: git submodule update --init --recursive")
+endif
+
+# Optional Layer 3 Algorithms library (when created)
+ALGO_DIR  = $(ROOT_DIR)/lib/Embedded-Algorithms
+
 CMSIS_DIR = $(LIB_DIR)/Drivers/CMSIS
 
 # Toolchain configuration (override via environment or CLI: make ARM_TOOLCHAIN_DIR=...)
@@ -35,13 +47,17 @@ MCU = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 # Hardware Defines
 DEFS = -DSTM32F446xx
 
-# Include Paths (Project + Layer 2 Components + Layer 1 Drivers + CMSIS)
+# Include Paths (Application + Components + Algorithms + HAL + CMSIS)
 INCLUDES = \
     -Iinclude \
     -I$(COMP_DIR)/include \
     -I$(LIB_DIR)/Inc \
     -I$(CMSIS_DIR)/Device/ST/STM32F4xx/Include \
     -I$(CMSIS_DIR)/Include
+
+ifneq ($(wildcard $(ALGO_DIR)/include),)
+    INCLUDES += -I$(ALGO_DIR)/include
+endif
 
 # Compiler Optimization & Strict Warning Flags
 COMMON_FLAGS = $(MCU) $(DEFS) $(INCLUDES) -Wall -Wextra -Wpedantic -Werror -ffunction-sections -fdata-sections -O2 -g3
@@ -53,7 +69,7 @@ ASFLAGS  = $(MCU) $(DEFS) $(INCLUDES) -Wall -fdata-sections -ffunction-sections
 LDSCRIPT = $(LIB_DIR)/STM32F446RETX_FLASH.ld
 LDFLAGS  = $(MCU) -T$(LDSCRIPT) -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--cref -Wl,--gc-sections -specs=nano.specs -specs=nosys.specs
 
-# Layer 1 Sources
+# Layer 1 Sources (STM32-Library HAL)
 LIB_C_SOURCES = \
     $(LIB_DIR)/Src/syscalls.c \
     $(LIB_DIR)/Src/sysmem.c \
@@ -141,7 +157,7 @@ size: $(BUILD_DIR)/$(TARGET).elf
 	@$(SZ) --format=berkeley $<
 
 clean:
-	@echo "Cleaning line follower build artifacts..."
+	@echo "Cleaning firmware build artifacts..."
 	@rm -rf $(BUILD_DIR)
 
 flash: all
@@ -151,8 +167,8 @@ flash-stlink: all
 	st-flash write $(BUILD_DIR)/$(TARGET).bin 0x08000000
 
 help:
-	@echo "Line Follower Robot Build System"
-	@echo "--------------------------------"
+	@echo "Line Follower Firmware Build System"
+	@echo "-----------------------------------"
 	@echo "make              : Build firmware binary"
 	@echo "make size         : Show memory footprint"
 	@echo "make clean        : Remove build directory"

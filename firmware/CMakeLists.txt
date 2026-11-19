@@ -1,25 +1,40 @@
 cmake_minimum_required(VERSION 3.16)
 
 # ==============================================================================
-# CMakeLists.txt for Line Follower Robot (Layer 3 Project)
-# Target: STM32F446RE (ARM Cortex-M4F)
+# CMakeLists.txt for High-Speed Closed-Loop Line Follower Robot Firmware
+# Target: STM32F446RE (ARM Cortex-M4F @ 180 MHz)
 # ==============================================================================
 
-set(PROJECT_TARGET line_follower_robot)
+set(APP_TARGET line_follower)
 
-# Submodule directories
-set(LIB_DIR   "${CMAKE_CURRENT_SOURCE_DIR}/../../lib/STM32-Library")
-set(COMP_DIR  "${CMAKE_CURRENT_SOURCE_DIR}/../../lib/STM32-Components")
+# Base paths
+set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
+set(COMP_DIR "${ROOT_DIR}/lib/STM32-Components")
+set(ALGO_DIR "${ROOT_DIR}/lib/Embedded-Algorithms")
+
+# Resolve Layer 1 directory
+if(EXISTS "${ROOT_DIR}/lib/STM32-Library/Inc")
+    set(LIB_DIR "${ROOT_DIR}/lib/STM32-Library")
+elseif(EXISTS "${COMP_DIR}/lib/STM32-Library/Inc")
+    set(LIB_DIR "${COMP_DIR}/lib/STM32-Library")
+else()
+    message(FATAL_ERROR "STM32-Library not found in lib/STM32-Library or lib/STM32-Components/lib/STM32-Library")
+endif()
+
 set(CMSIS_DIR "${LIB_DIR}/Drivers/CMSIS")
 
 # Include directories
-set(PROJECT_INCLUDES
+set(APP_INCLUDES
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
     "${COMP_DIR}/include"
     "${LIB_DIR}/Inc"
     "${CMSIS_DIR}/Device/ST/STM32F4xx/Include"
     "${CMSIS_DIR}/Include"
 )
+
+if(EXISTS "${ALGO_DIR}/include")
+    list(APPEND APP_INCLUDES "${ALGO_DIR}/include")
+endif()
 
 # Application Sources
 file(GLOB_RECURSE APP_SOURCES
@@ -53,15 +68,22 @@ set(LIB_SOURCES
     "${LIB_DIR}/Inc/stm32/dma/interrupt/dma_irq.cpp"
 )
 
-add_executable(${PROJECT_TARGET}.elf ${APP_SOURCES} ${LIB_SOURCES})
+add_executable(${APP_TARGET}.elf ${APP_SOURCES} ${LIB_SOURCES})
 
-target_include_directories(${PROJECT_TARGET}.elf PRIVATE ${PROJECT_INCLUDES})
+target_include_directories(${APP_TARGET}.elf PRIVATE ${APP_INCLUDES})
 
 set(LDSCRIPT "${LIB_DIR}/STM32F446RETX_FLASH.ld")
-target_link_options(${PROJECT_TARGET}.elf PRIVATE
+target_link_options(${APP_TARGET}.elf PRIVATE
     -T${LDSCRIPT}
-    -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_TARGET}.map,--cref
+    -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${APP_TARGET}.map,--cref
     -Wl,--gc-sections
     -specs=nano.specs
     -specs=nosys.specs
+)
+
+add_custom_command(TARGET ${APP_TARGET}.elf POST_BUILD
+    COMMAND ${CMAKE_OBJCOPY} -O binary ${APP_TARGET}.elf ${APP_TARGET}.bin
+    COMMAND ${CMAKE_OBJCOPY} -O ihex   ${APP_TARGET}.elf ${APP_TARGET}.hex
+    COMMAND ${CMAKE_SIZE} --format=berkeley ${APP_TARGET}.elf
+    COMMENT "Building raw flash binaries (.bin/.hex) and displaying memory footprint:"
 )

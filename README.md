@@ -26,24 +26,23 @@ Production-grade, competition-oriented autonomous line following robot built on 
 
 ```
 STM32-Line-Follower-Robot/
-├── apps/
-│   └── line_follower/               # Primary Consumer Firmware Application
-│       ├── CMakeLists.txt           # Application CMake build
-│       ├── Makefile                 # Application Makefile build
-│       ├── include/
-│       │   ├── robot_config.hpp     # Hardware pin assignments & tuning constants
-│       │   ├── sensor_subsystem.hpp # 8-channel DMA ADC & AutoDifferential ambient rejection
-│       │   ├── drive_subsystem.hpp  # TB6612 (HardwareTiedHigh STBY) & dual encoders
-│       │   ├── battery_monitor.hpp  # 3S LiPo ADC voltage monitor with low-voltage protection
-│       │   ├── telemetry_manager.hpp# HC-05 packet parser (<KP:...>, <KD:...>, <SPEED:...>, etc.)
-│       │   └── robot_controller.hpp # Finite State Machine (Init, Calib, Ready, Track, Lost, Stop)
-│       └── src/
-│           ├── main.cpp             # 1 kHz deterministic control loop
-│           ├── sensor_subsystem.cpp
-│           ├── drive_subsystem.cpp
-│           ├── battery_monitor.cpp
-│           ├── telemetry_manager.cpp
-│           └── robot_controller.cpp
+├── firmware/                        # Primary Consumer Firmware Application
+│   ├── CMakeLists.txt               # Application CMake build
+│   ├── Makefile                     # Standalone Application Makefile build
+│   ├── include/
+│   │   ├── robot_config.hpp         # Hardware pin assignments & tuning constants
+│   │   ├── sensor_subsystem.hpp     # 8-channel DMA ADC & AutoDifferential ambient rejection
+│   │   ├── drive_subsystem.hpp      # TB6612 (HardwareTiedHigh STBY) & dual encoders
+│   │   ├── battery_monitor.hpp      # 3S LiPo ADC voltage monitor with low-voltage protection
+│   │   ├── telemetry_manager.hpp    # HC-05 packet parser (<KP:...>, <KD:...>, <SPEED:...>, etc.)
+│   │   └── robot_controller.hpp     # Finite State Machine (Init, Calib, Ready, Track, Lost, Stop)
+│   └── src/
+│       ├── main.cpp                 # 1 kHz deterministic control loop
+│       ├── sensor_subsystem.cpp
+│       ├── drive_subsystem.cpp
+│       ├── battery_monitor.cpp
+│       ├── telemetry_manager.cpp
+│       └── robot_controller.cpp
 │
 ├── hardware/                        # KiCad 8 / 7 Hardware Designs
 │   ├── motherboard/                 # Board 1: STM32F446 + TB6612 + Buck/LDO + HC-05
@@ -55,11 +54,12 @@ STM32-Line-Follower-Robot/
 ├── mechanical/                      # 3D Chassis CAD & 3D Print Files
 │   ├── README.md                    # Dimensions, wheel clearance, 3D printing specs
 │   ├── cad/                         # STEP / CAD assembly models
-│   └── 3d_print_stls/               # Ball caster bracket, N20 motor mounts
+│   └── stl/                         # Ball caster bracket, N20 motor mounts
 │
-├── lib/                             # Submodules
+├── lib/                             # Modular Submodules
 │   ├── STM32-Components/            # [Layer 2] Device Drivers (TB6612, QTR, Encoder, Buzzer)
-│   └── STM32-Library/               # [Layer 1] Bare-Metal Peripheral Engine
+│   ├── STM32-Library/               # [Layer 1] Bare-Metal Peripheral Engine
+│   └── Embedded-Algorithms/         # [Layer 3] Pure C++17 Math, PID, Pathfinding (Optional / Planned)
 │
 ├── CMakeLists.txt                   # Root CMake orchestrator
 ├── Makefile                         # Unified root Makefile
